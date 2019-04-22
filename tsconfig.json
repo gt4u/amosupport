@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "module": "umd",
+    "target": "es5",
+    "moduleResolution": "node"
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
