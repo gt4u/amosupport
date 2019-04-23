@@ -22,7 +22,7 @@
             configurable: true
         });
         AmoHelper.getProp = function (closure, key) {
-            if (closure().hasOwnProperty('key')) {
+            if (closure().hasOwnProperty(key)) {
                 return closure()[key];
             }
             this.notDefineException(key);
