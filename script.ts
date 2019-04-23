@@ -5,23 +5,18 @@ export = class AmoHelper
         return new Error(`${key} IS NOT DEFINED IN THE WINDOW`);
     }
 
-    private static get window()
-    {
-        return window;
-    }
-
     private static getProp(closure, key)
     {
-        if (closure().hasOwnProperty(key))
+        if (closure.hasOwnProperty(key))
         {
-            return closure()[key];
+            return closure[key];
         }
         this.notDefineException(key);
     }
 
     static get amo(): object
     {
-        return this.getProp(this.window, 'AMOCRM');
+        return this.getProp(window, 'AMOCRM');
     }
 
     static get data(): object

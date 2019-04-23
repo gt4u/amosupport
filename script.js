@@ -14,22 +14,15 @@
         AmoHelper.notDefineException = function (key) {
             return new Error(key + " IS NOT DEFINED IN THE WINDOW");
         };
-        Object.defineProperty(AmoHelper, "window", {
-            get: function () {
-                return window;
-            },
-            enumerable: true,
-            configurable: true
-        });
         AmoHelper.getProp = function (closure, key) {
-            if (closure().hasOwnProperty(key)) {
-                return closure()[key];
+            if (closure.hasOwnProperty(key)) {
+                return closure[key];
             }
             this.notDefineException(key);
         };
         Object.defineProperty(AmoHelper, "amo", {
             get: function () {
-                return this.getProp(this.window, 'AMOCRM');
+                return this.getProp(window, 'AMOCRM');
             },
             enumerable: true,
             configurable: true
