@@ -1,8 +1,8 @@
 export = class AmoHelper
 {
-    private static notDefineException(key: string)
+    private static notDefineException(key: string): typeof Error
     {
-        return new Error(`${key} IS NOT DEFINED IN THE WINDOW`);
+        throw new Error(`${key} IS NOT DEFINED IN THE WINDOW`);
     }
 
     private static getProp(closure, key)
@@ -54,26 +54,26 @@ export = class AmoHelper
 
     static get currentEntity(): string
     {
-        return this.getProp(this.currentCard, 'current_entity');
+        return this.getProp(this.data, 'current_entity');
     }
 
     static get entityChanged(): boolean
     {
-        return this.getProp(this.currentCard, 'entity_changed');
+        return this.getProp(this.data, 'entity_changed');
     }
 
     static get isCard(): boolean
     {
-        return this.getProp(this.currentCard, 'is_card');
+        return this.getProp(this.data, 'is_card');
     }
 
     static get pageChanged(): boolean
     {
-        return this.getProp(this.currentCard, 'page_changed');
+        return this.getProp(this.data, 'page_changed');
     }
 
     static get fromCard(): boolean
     {
-        return this.getProp(this.currentCard, 'from_card');
+        return this.getProp(this.data, 'from_card');
     }
 }

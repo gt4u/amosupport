@@ -12,7 +12,7 @@
         function AmoHelper() {
         }
         AmoHelper.notDefineException = function (key) {
-            return new Error(key + " IS NOT DEFINED IN THE WINDOW");
+            throw new Error(key + " IS NOT DEFINED IN THE WINDOW");
         };
         AmoHelper.getProp = function (closure, key) {
             if (closure.hasOwnProperty(key)) {
@@ -74,35 +74,35 @@
         });
         Object.defineProperty(AmoHelper, "currentEntity", {
             get: function () {
-                return this.getProp(this.currentCard, 'current_entity');
+                return this.getProp(this.data, 'current_entity');
             },
             enumerable: true,
             configurable: true
         });
         Object.defineProperty(AmoHelper, "entityChanged", {
             get: function () {
-                return this.getProp(this.currentCard, 'entity_changed');
+                return this.getProp(this.data, 'entity_changed');
             },
             enumerable: true,
             configurable: true
         });
         Object.defineProperty(AmoHelper, "isCard", {
             get: function () {
-                return this.getProp(this.currentCard, 'is_card');
+                return this.getProp(this.data, 'is_card');
             },
             enumerable: true,
             configurable: true
         });
         Object.defineProperty(AmoHelper, "pageChanged", {
             get: function () {
-                return this.getProp(this.currentCard, 'page_changed');
+                return this.getProp(this.data, 'page_changed');
             },
             enumerable: true,
             configurable: true
         });
         Object.defineProperty(AmoHelper, "fromCard", {
             get: function () {
-                return this.getProp(this.currentCard, 'from_card');
+                return this.getProp(this.data, 'from_card');
             },
             enumerable: true,
             configurable: true
