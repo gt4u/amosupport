@@ -1,4 +1,4 @@
-export = class AmoHelper
+export = class AmoSupport
 {
     private static notDefineException(key: string): typeof Error
     {

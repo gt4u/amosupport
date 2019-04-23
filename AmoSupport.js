@@ -9,46 +9,46 @@
 })(function (require, exports) {
     "use strict";
     return /** @class */ (function () {
-        function AmoHelper() {
+        function AmoSupport() {
         }
-        AmoHelper.notDefineException = function (key) {
+        AmoSupport.notDefineException = function (key) {
             throw new Error(key + " IS NOT DEFINED IN THE WINDOW");
         };
-        AmoHelper.getProp = function (closure, key) {
+        AmoSupport.getProp = function (closure, key) {
             if (closure.hasOwnProperty(key)) {
                 return closure[key];
             }
             this.notDefineException(key);
         };
-        Object.defineProperty(AmoHelper, "amo", {
+        Object.defineProperty(AmoSupport, "amo", {
             get: function () {
                 return this.getProp(window, 'AMOCRM');
             },
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(AmoHelper, "data", {
+        Object.defineProperty(AmoSupport, "data", {
             get: function () {
                 return this.getProp(this.amo, 'data');
             },
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(AmoHelper, "cardPage", {
+        Object.defineProperty(AmoSupport, "cardPage", {
             get: function () {
                 return this.getProp(this.data, 'card_page');
             },
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(AmoHelper, "currentCard", {
+        Object.defineProperty(AmoSupport, "currentCard", {
             get: function () {
                 return this.getProp(this.data, 'current_card');
             },
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(AmoHelper, "cardElementType", {
+        Object.defineProperty(AmoSupport, "cardElementType", {
             /**
              * 1 - contact; 2 - lead, 3 - company
              */
@@ -58,55 +58,55 @@
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(AmoHelper, "cardId", {
+        Object.defineProperty(AmoSupport, "cardId", {
             get: function () {
                 return this.getProp(this.currentCard, 'id');
             },
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(AmoHelper, "newCard", {
+        Object.defineProperty(AmoSupport, "newCard", {
             get: function () {
                 return this.getProp(this.currentCard, 'new_card');
             },
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(AmoHelper, "currentEntity", {
+        Object.defineProperty(AmoSupport, "currentEntity", {
             get: function () {
                 return this.getProp(this.data, 'current_entity');
             },
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(AmoHelper, "entityChanged", {
+        Object.defineProperty(AmoSupport, "entityChanged", {
             get: function () {
                 return this.getProp(this.data, 'entity_changed');
             },
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(AmoHelper, "isCard", {
+        Object.defineProperty(AmoSupport, "isCard", {
             get: function () {
                 return this.getProp(this.data, 'is_card');
             },
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(AmoHelper, "pageChanged", {
+        Object.defineProperty(AmoSupport, "pageChanged", {
             get: function () {
                 return this.getProp(this.data, 'page_changed');
             },
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(AmoHelper, "fromCard", {
+        Object.defineProperty(AmoSupport, "fromCard", {
             get: function () {
                 return this.getProp(this.data, 'from_card');
             },
             enumerable: true,
             configurable: true
         });
-        return AmoHelper;
+        return AmoSupport;
     }());
 });
