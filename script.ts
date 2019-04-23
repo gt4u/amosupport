@@ -12,7 +12,7 @@ export = class AmoHelper
 
     private static getProp(closure, key)
     {
-        if (closure().hasOwnProperty('key'))
+        if (closure().hasOwnProperty(key))
         {
             return closure()[key];
         }
